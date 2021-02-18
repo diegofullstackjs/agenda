@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  db:
+   image: postgres
+   container_name: postgres-agendamento
+   restart: always
+   environment:
+      - POSTGRES_PASSWORD=mysecret
+      - POSTGRES_USER=diegojs
+      - POSTGRES_DB=agendamento
+
+   ports: 
+     - 5432:5432
