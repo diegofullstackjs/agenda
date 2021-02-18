@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 import CategoryEntity from './Category.entity'
 import ServicesEntity from './Services.entity'
 import UserEntity from './Users.entity'
@@ -7,8 +7,10 @@ export default class BusinessEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string
     @OneToOne(type => UserEntity)
+    @JoinColumn({name: 'user_id'})
     owner: UserEntity
     @OneToOne(type => CategoryEntity)
+    @JoinColumn({name: 'categorie_id'})
     categorie: CategoryEntity
     @Column('varchar')
     owner_name: string
@@ -26,7 +28,7 @@ export default class BusinessEntity {
     uf: string
     @Column('varchar', { nullable: true })
     complemento: string
-    @OneToMany(type => ServicesEntity,service =>service.id )
+    @OneToMany(type => ServicesEntity,service =>service.id,{nullable:true} )
     services: ServicesEntity[]
     @CreateDateColumn()
     created_at: Date
