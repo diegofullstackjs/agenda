@@ -3,11 +3,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
 import { UsersModule } from './users/users.module';
+import { AdministratorModule } from './administrator/administrator.module';
 
 @Module({
   imports: [
     DatabaseModule,
-    UsersModule
+    UsersModule,
+    AdministratorModule
   ],
   controllers: [AppController],
   providers: [AppService],
