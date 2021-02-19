@@ -5,6 +5,7 @@ import UserEntity from './entities/Users.entity';
 import CategoryEntity from './entities/Category.entity'
 import BusinessEntity from './entities/Business.entity';
 import ServicesEntity from './entities/Services.entity';
+import EmployeEntity from './entities/Employe.entity';
 @Module({
     imports:[
     ConfigModule.forRoot({}),
@@ -16,7 +17,12 @@ import ServicesEntity from './entities/Services.entity';
        database: process.env.POSTGRES_DB,
        port: parseInt(process.env.PORT_DB),
        synchronize:true,
-       entities: [UserEntity,CategoryEntity,ServicesEntity,BusinessEntity]
+       entities: [UserEntity,
+                  CategoryEntity,
+                  ServicesEntity,
+                  BusinessEntity,
+                  EmployeEntity
+                ]
     })],
     exports: []
 })
