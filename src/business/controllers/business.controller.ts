@@ -1,4 +1,5 @@
-import { Controller,Body, HttpException, HttpStatus, Post, Get } from '@nestjs/common';
+import { Controller,Body, HttpException, HttpStatus, Post, Get, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import BusinessDTO from '../dto/business.dto';
 import BusinesService from '../services/business.services';
 @Controller('api/v1/business')
@@ -16,6 +17,7 @@ export default class BusinessController {
            return new HttpException('Aconteceu erro em cadastrar sua empresa',HttpStatus.BAD_REQUEST)
         }
     }
+    @UseGuards(AuthGuard('jwt'))
     @Post('create')
     async create(@Body() form: BusinessDTO ){
         try {
