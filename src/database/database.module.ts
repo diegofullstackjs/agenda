@@ -17,7 +17,8 @@ import ServicesEntity from './entities/Services.entity';
        port: parseInt(process.env.PORT_DB),
        synchronize:true,
        entities: [UserEntity,CategoryEntity,ServicesEntity,BusinessEntity]
-    })]
+    })],
+    exports: []
 })
 
 export class DatabaseModule {}
