@@ -11,7 +11,7 @@ import EmployeEntity from './entities/Employe.entity';
     ConfigModule.forRoot({}),
     TypeOrmModule.forRoot({
        type: 'postgres', 
-       host: String(process.env.URL_DATABASE) ||'localhost',
+       host: process.env.URL_DATABASE ||'localhost',
        username: process.env.POSTGRES_USER,
        password: process.env.POSTGRES_PASSWORD,
        database: process.env.POSTGRES_DB,
