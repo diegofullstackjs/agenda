@@ -1,5 +1,6 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 import CategoryEntity from './Category.entity'
+import EmployeEntity from './Employe.entity'
 import ServicesEntity from './Services.entity'
 import UserEntity from './Users.entity'
 @Entity('business')
@@ -12,6 +13,9 @@ export default class BusinessEntity {
     @OneToOne(type => CategoryEntity)
     @JoinColumn({name: 'categorie_id'})
     categorie: CategoryEntity
+    @OneToOne(type => EmployeEntity)
+    @JoinColumn({name: 'employes'})
+    employes: EmployeEntity[]
     @Column('varchar')
     owner_name: string
     @Column('varchar')
