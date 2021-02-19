@@ -17,6 +17,7 @@ import EmployeEntity from './entities/Employe.entity';
        database: process.env.POSTGRES_DB,
        port: parseInt(process.env.PORT_DB),
        synchronize:true,
+       ssl: process.env.SSL ? true : false,
        entities: [UserEntity,
                   CategoryEntity,
                   ServicesEntity,
